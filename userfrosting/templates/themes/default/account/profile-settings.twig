@@ -1,0 +1,142 @@
+{% extends "layouts/layout-dashboard.twig" %}
+
+{% set page_group = "dashboard" %}
+
+{% block page %}   
+	{% set page = page | merge({
+		"title"       : "Profile Settings",
+		"description" : "Settings of your profile"
+	}) %}
+	{{ parent() }}
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+        <div class="col-lg-6">
+            <div class='panel panel-primary'>
+                <div class='panel-heading'>
+                    <h3 class='panel-title'><i class='fa fa-gear'></i> Profile Settings</h3>
+                </div>
+                <div class='panel-body'>
+                    <form class='form-horizontal' role='form' name='profile-settings' action='{{site.uri.public}}/account/profile' method='post'>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">First Name</label>
+                            <div class="col-sm-8">
+                                <input type='text' class="form-control" name="first_name" value='{{user.first_name}}'>
+                                <p class="help-block">Your first name.</p>
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label class="col-sm-4 control-label">Last Name</label>
+                            <div class="col-sm-8">
+                                <input type='text' class="form-control" name="last_name" value='{{user.last_name}}'>
+                                <p class="help-block">Your last name.</p>
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label class="col-sm-4 control-label">Street Address</label>
+                            <div class="col-sm-8">
+                                <input type='text' class="form-control" name="city" value='{{user.street_address}}'>
+                                <p class="help-block">Your street address.</p>
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label class="col-sm-4 control-label">City</label>
+                            <div class="col-sm-8">
+                                <input type='text' class="form-control" name="city" value='{{user.city}}'>
+                                <p class="help-block">Your city.</p>
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label class="col-sm-4 control-label">State</label>
+                            <div class="col-sm-8">
+                                <input type='text' class="form-control" name="state" value='{{user.state}}'>
+								
+                                <p class="help-block">Your state.</p>
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label class="col-sm-4 control-label">Zip Code</label>
+                            <div class="col-sm-8">
+                                <input type='text' class="form-control" name="zip_code" value='{{user.zip_code}}'>
+                                <p class="help-block">Your zip code.</p>
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label class="col-sm-4 control-label">Phone Number</label>
+                            <div class="col-sm-8">
+                                <input type='text' class="form-control" name="phone_number" value='{{user.phone_number}}'>
+                                <p class="help-block">Your phone number.</p>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-success text-center">Update Settings</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<div class="row">
+        <div class="col-lg-6">
+            <div class='panel panel-primary'>
+                <div class='panel-heading'>
+                    <h3 class='panel-title'><i class='fa fa-gear'></i> Payment Settings</h3>
+                </div>
+                <div class='panel-body'>
+                    <form class='form-horizontal' role='form' name='profile-settings' action='{{site.uri.public}}/account/profile' method='post'>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Credit Card Type</label>
+                            <div class="col-sm-8">
+                                <input type='text' class="form-control" name="card_type" value='{{user.card_type}}'>
+                                <p class="help-block">Your card type (Visa, Discover, etc.) 
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label class="col-sm-4 control-label">Card Number</label>
+                            <div class="col-sm-8">
+                                <input type='text' class="form-control" name="card_number" value='{{user.card_number}}'>
+                                <p class="help-block">Your card number (no spaces).</p>
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label class="col-sm-4 control-label">CVV</label>
+                            <div class="col-sm-8">
+                                <input type='text' class="form-control" name="cvv" value='{{user.cvv}}'>
+                                <p class="help-block">Your CVV (Last 3 digits on back of card).</p>
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label class="col-sm-4 control-label">Expiration Date</label>
+                            <div class="col-sm-8">
+                                <input type='text' class="form-control" name="exp_date" value='{{user.exp_date}}'>
+                                <p class="help-block">The expiration date on the card (Example: 09/16)</p>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-success text-center">Update Settings</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block page_scripts %}
+	<script>
+	$(document).ready(function() { 
+		// Load the validator rules for this form
+		var validators = {{validators | raw}};
+		ufFormSubmit(
+		  $("form[name='profile-settings']"),
+		  validators,
+		  $("#userfrosting-alerts"),
+		  function(data, statusText, jqXHR) {
+			  // Reload the page on success
+			  window.location.reload(true);   
+		  }
+		);
+	});
+</script>
+{% endblock %}

@@ -1,0 +1,259 @@
+{
+    "display_name" : {
+        "validators" : {
+            "length" : {
+                "min" : 1,
+                "max" : 50,
+                "message" : "ACCOUNT_DISPLAY_CHAR_LIMIT"
+            }
+        },
+        "sanitizers" : {
+            "raw" : ""
+        }
+    },
+	"first_name" : {
+        "validators" : {
+            "length" : {
+                "min" : 1,
+                "max" : 50,
+                "message" : "ACCOUNT_FIRST_CHAR_LIMIT"
+            }
+        },
+        "sanitizers" : {
+            "raw" : ""
+        }
+    },   	
+	"last_name" : {
+        "validators" : {
+            "length" : {
+                "min" : 1,
+                "max" : 50,
+                "message" : "ACCOUNT_LAST_CHAR_LIMIT"
+            }
+        },
+        "sanitizers" : {
+            "raw" : ""
+        }
+    }, 
+	"street_address" : {
+        "validators" : {
+            "length" : {
+                "min" : 1,
+                "max" : 50,
+                "message" : "ACCOUNT_STREET_CHAR_LIMIT"
+            }
+        },
+        "sanitizers" : {
+            "raw" : ""
+        }
+    }, 
+	"city" : {
+        "validators" : {
+            "length" : {
+                "min" : 1,
+                "max" : 50,
+                "message" : "ACCOUNT_CITY_CHAR_LIMIT"
+            }
+        },
+        "sanitizers" : {
+            "raw" : ""
+        }
+    }, 
+	"state" : {
+        "validators" : {
+            "length" : {
+                "min" : 2,
+                "max" : 2,
+                "message" : "ACCOUNT_STATE_CHAR_LIMIT"
+            }
+        },
+        "sanitizers" : {
+            "raw" : ""
+        }
+    }, 
+	"zip_code" : {
+        "validators" : {
+            "length" : {
+                "min" : 5,
+                "max" : 5,
+                "message" : "ACCOUNT_ZIP_CHAR_LIMIT"
+            }
+        },
+        "sanitizers" : {
+            "raw" : ""
+        }
+    }, 
+	"country" : {
+        "validators" : {
+            "length" : {
+                "min" : 1,
+                "max" : 50,
+                "message" : "ACCOUNT_COUNTRY_CHAR_LIMIT"
+            }
+        },
+        "sanitizers" : {
+            "raw" : ""
+        }
+    }, 
+	"phone_number" : {
+        "validators" : {
+            "length" : {
+                "min" : 10,
+                "max" : 10,
+                "message" : "ACCOUNT_PHONE_CHAR_LIMIT"
+            }
+        },
+        "sanitizers" : {
+            "raw" : ""
+        }
+    }, 
+    "email" : {
+        "validators" : {
+            "length" : {
+                "min" : 1,
+                "max" : 150,
+                "message" : "ACCOUNT_EMAIL_CHAR_LIMIT"
+            },
+            "email" : {
+                "message" : "ACCOUNT_INVALID_EMAIL"
+            }
+        },
+        "sanitizers" : {
+            "raw" : ""
+        }
+    },
+    "title" : {
+        "validators" : {
+            "length" : {
+                "min" : 1,
+                "max" : 150,
+                "message" : "ACCOUNT_TITLE_CHAR_LIMIT"
+            }
+        }
+    },
+    "locale" : {
+        "validators" : {
+
+        }
+    },
+    "primary_group_id" : {
+        "validators" : {
+            "integer" : {
+                "message" : "VALIDATE_INTEGER"
+            }
+        }
+    },
+    "password" : {
+        "validators" : {
+            "length" : {
+                "min" : 8,
+                "max" : 50,
+                "message" : "ACCOUNT_PASS_CHAR_LIMIT"
+            }
+        },
+        "sanitizers" : {
+            "raw" : {}
+        }    
+    },
+    "passwordc" : {
+        "validators" : {
+            "matches" : {
+                "field" : "password",
+                "message" : "ACCOUNT_PASS_MISMATCH"
+            },
+            "length" : {
+                "min" : 8,
+                "max" : 50,
+                "message" : "ACCOUNT_PASS_CHAR_LIMIT"
+            }
+        },
+        "sanitizers" : {
+            "raw" : {}
+        }    
+    },    
+	"card_type" : {
+        "validators" : {
+            "length" : {
+                "min" : 1,
+                "max" : 50,
+                "message" : "ACCOUNT_CARDT_CHAR_LIMIT"
+            }
+        },
+        "sanitizers" : {
+            "raw" : ""
+        }
+    },
+	"card_number" : {
+        "validators" : {
+            "length" : {
+                "min" : 16,
+                "max" : 16,
+                "message" : "ACCOUNT_CARDN_CHAR_LIMIT"
+            }
+        },
+        "sanitizers" : {
+            "raw" : ""
+        }
+    },
+	"exp_date" : {
+        "validators" : {
+            "length" : {
+                "min" : 5,
+                "max" : 5,
+                "message" : "ACCOUNT_EXPD_CHAR_LIMIT"
+            }
+        },
+        "sanitizers" : {
+            "raw" : ""
+        }
+    },
+	"cvv" : {
+        "validators" : {
+            "length" : {
+                "min" : 3,
+                "max" : 3,
+                "message" : "ACCOUNT_CVV_CHAR_LIMIT"
+            }
+        },
+        "sanitizers" : {
+            "raw" : ""
+        }
+    },
+    "groups" : {
+        "validators" : {
+            "array" : {
+                "message" : "VALIDATE_ARRAY"
+            }
+        }
+    },
+    "flag_enabled" : {
+        "validators" : {
+            "member_of" : {
+                "values" : [
+                    "0", "1"
+                ],
+                "message" : "VALIDATE_BOOLEAN" 
+            }
+        }
+    },
+    "flag_verified" : {
+        "validators" : {
+            "member_of" : {
+                "values" : [
+                    "0", "1"
+                ],
+                "message" : "VALIDATE_BOOLEAN" 
+            }
+        }
+    },
+    "flag_password_reset" : {
+        "validators" : {
+            "member_of" : {
+                "values" : [
+                    "0", "1"
+                ],
+                "message" : "VALIDATE_BOOLEAN" 
+            }
+        }
+    }    
+}
